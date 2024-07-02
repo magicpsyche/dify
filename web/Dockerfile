@@ -1,6 +1,5 @@
 # base image
 FROM node:20.11-alpine3.19 AS base
-LABEL maintainer="takatost@gmail.com"
 
 # if you located in China, you can use aliyun mirror to speed up
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
@@ -36,8 +35,8 @@ FROM base as production
 ENV NODE_ENV production
 ENV EDITION SELF_HOSTED
 ENV DEPLOY_ENV PRODUCTION
-ENV CONSOLE_API_URL http://127.0.0.1:5001
-ENV APP_API_URL http://127.0.0.1:5001
+ENV CONSOLE_API_URL https://ckymursm.bja.sealos.run
+ENV APP_API_URL https://ckymursm.bja.sealos.run
 ENV PORT 3000
 
 # set timezone
