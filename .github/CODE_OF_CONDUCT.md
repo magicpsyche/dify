@@ -40,4 +40,3 @@ Examples of unacceptable behavior include:
 
 To facilitate clear and effective communication, all discussions, comments, documentation, and pull requests in this project should be conducted in English. This ensures that all contributors can participate and collaborate effectively.
 
-
