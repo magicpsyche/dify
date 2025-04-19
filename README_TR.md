@@ -45,6 +45,7 @@
   <a href="./README_AR.md"><img alt="README بالعربية" src="https://img.shields.io/badge/العربية-d9d9d9"></a>
   <a href="./README_TR.md"><img alt="Türkçe README" src="https://img.shields.io/badge/Türkçe-d9d9d9"></a>
   <a href="./README_VI.md"><img alt="README Tiếng Việt" src="https://img.shields.io/badge/Ti%E1%BA%BFng%20Vi%E1%BB%87t-d9d9d9"></a>
+  <a href="./README_BN.md"><img alt="README in বাংলা" src="https://img.shields.io/badge/বাংলা-d9d9d9"></a>
 </p>
 
 
@@ -64,8 +65,6 @@ Görsel bir arayüz üzerinde güçlü AI iş akışları oluşturun ve test edi
 
 ![providers-v5](https://github.com/langgenius/dify/assets/13230914/5a17bdbe-097a-4100-8363-40255b70f6e3)
 
-
-Özür dilerim, haklısınız. Daha anlamlı ve akıcı bir çeviri yapmaya çalışayım. İşte güncellenmiş çeviri:
 
 **3. Prompt IDE**: 
   Komut istemlerini oluşturmak, model performansını karşılaştırmak ve sohbet tabanlı uygulamalara metin-konuşma gibi ek özellikler eklemek için kullanıcı dostu bir arayüz.
@@ -153,8 +152,6 @@ Görsel bir arayüz üzerinde güçlü AI iş akışları oluşturun ve test edi
 ## Dify'ı Kullanma
 
 - **Cloud </br>**
-İşte verdiğiniz metnin Türkçe çevirisi, kod bloğu içinde:
-- 
 Herkesin sıfır kurulumla denemesi için bir [Dify Cloud](https://dify.ai) hizmeti sunuyoruz. Bu hizmet, kendi kendine dağıtılan versiyonun tüm yeteneklerini sağlar ve sandbox planında 200 ücretsiz GPT-4 çağrısı içerir.
 
 - **Dify Topluluk Sürümünü Kendi Sunucunuzda Barındırma</br>**
@@ -180,8 +177,6 @@ GitHub'da Dify'a yıldız verin ve yeni sürümlerden anında haberdar olun.
 >- RAM >= 4GB
 
 </br>
-İşte verdiğiniz metnin Türkçe çevirisi, kod bloğu içinde:
-
 Dify sunucusunu başlatmanın en kolay yolu, [docker-compose.yml](docker/docker-compose.yaml) dosyamızı çalıştırmaktır. Kurulum komutunu çalıştırmadan önce, makinenizde [Docker](https://docs.docker.com/get-docker/) ve [Docker Compose](https://docs.docker.com/compose/install/)'un kurulu olduğundan emin olun:
 
 ```bash
@@ -203,6 +198,7 @@ Yüksek kullanılabilirliğe sahip bir kurulum yapılandırmak isterseniz, Dify'
 - [@LeoQuote tarafından Helm Chart](https://github.com/douban/charts/tree/master/charts/dify)
 - [@BorisPolonsky tarafından Helm Chart](https://github.com/BorisPolonsky/dify-helm)
 - [@Winson-030 tarafından YAML dosyası](https://github.com/Winson-030/dify-kubernetes)
+- [@wyy-holding tarafından YAML dosyası](https://github.com/wyy-holding/dify-k8s)
 
 #### Dağıtım için Terraform Kullanımı
 
