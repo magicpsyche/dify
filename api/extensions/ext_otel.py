@@ -14,7 +14,7 @@ from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExport
 from opentelemetry.instrumentation.celery import CeleryInstrumentor
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
-from opentelemetry.metrics import get_meter_provider, set_meter_provider
+from opentelemetry.metrics import get_meter, get_meter_provider, set_meter_provider
 from opentelemetry.propagate import set_global_textmap
 from opentelemetry.propagators.b3 import B3Format
 from opentelemetry.propagators.composite import CompositePropagator
@@ -34,6 +34,31 @@ from opentelemetry.trace.status import StatusCode
 
 from configs import dify_config
 from dify_app import DifyApp
+
+
+class ExceptionLoggingHandler(logging.Handler):
+    """Custom logging handler that creates spans for logging.exception() calls"""
+
+    def emit(self, record):
+        try:
+            if record.exc_info:
+                tracer = get_tracer_provider().get_tracer("dify.exception.logging")
+                with tracer.start_as_current_span(
+                    "log.exception",
+                    attributes={
+                        "log.level": record.levelname,
+                        "log.message": record.getMessage(),
+                        "log.logger": record.name,
+                        "log.file.path": record.pathname,
+                        "log.file.line": record.lineno,
+                    },
+                ) as span:
+                    span.set_status(StatusCode.ERROR)
+                    span.record_exception(record.exc_info[1])
+                    span.set_attribute("exception.type", record.exc_info[0].__name__)
+                    span.set_attribute("exception.message", str(record.exc_info[1]))
+        except Exception:
+            pass
 
 
 @user_logged_in.connect
@@ -103,6 +128,7 @@ def init_app(app: DifyApp):
         if not is_celery_worker():
             init_flask_instrumentor(app)
             CeleryInstrumentor(tracer_provider=get_tracer_provider(), meter_provider=get_meter_provider()).instrument()
+        instrument_exception_logging()
         init_sqlalchemy_instrumentor(app)
         atexit.register(shutdown_tracer)
 
@@ -111,13 +137,28 @@ def is_celery_worker():
     return "celery" in sys.argv[0].lower()
 
 
+def instrument_exception_logging():
+    exception_handler = ExceptionLoggingHandler()
+    logging.getLogger().addHandler(exception_handler)
+
+
 def init_flask_instrumentor(app: DifyApp):
+    meter = get_meter("http_metrics", version=dify_config.CURRENT_VERSION)
+    _http_response_counter = meter.create_counter(
+        "http.server.response.count", description="Total number of HTTP responses by status code", unit="{response}"
+    )
+
     def response_hook(span: Span, status: str, response_headers: list):
         if span and span.is_recording():
             if status.startswith("2"):
                 span.set_status(StatusCode.OK)
             else:
                 span.set_status(StatusCode.ERROR, status)
+
+            status = status.split(" ")[0]
+            status_code = int(status)
+            status_class = f"{status_code // 100}xx"
+            _http_response_counter.add(1, {"status_code": status_code, "status_class": status_class})
 
     instrumentor = FlaskInstrumentor()
     if dify_config.DEBUG:
