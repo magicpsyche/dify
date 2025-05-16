@@ -1,0 +1,95 @@
+nohup: ignoring input
+
+> dify-web@1.3.1 start /home/lighthouse/dify/web
+> cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public && cross-env PORT=$npm_config_port HOSTNAME=$npm_config_host node .next/standalone/server.js
+
+   ▲ Next.js 15.2.3
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+
+ ✓ Starting...
+ ✓ Ready in 102ms
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
+ ⨯ RangeError: Incorrect locale information provided
+    at Intl.getCanonicalLocales (<anonymous>)
+    at p (.next/server/chunks/22475.js:23:32746)
+    at m (.next/server/chunks/4534.js:116:20330)
+    at async h (.next/server/chunks/4534.js:10:113401) {
+  digest: '1361465194'
+}
